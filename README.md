@@ -1,1 +1,1 @@
-# Gym-Management-System
+# comp693-2023-project1-group9
