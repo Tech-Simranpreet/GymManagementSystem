@@ -1,0 +1,39 @@
+{% extends "memberbase.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member fitness details</title>
+</head>
+<body>
+    <h1>member fitness details</h1>
+    {{member_classes}}
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Member ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Session ID</th>
+            <th>Class Name</th>
+            <th>Class Date</th>
+            <th>Class Time</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for class in member_classes%}
+            <tr>
+                {%for item in class%}
+                <td>{{item}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
+</body>
+</html>

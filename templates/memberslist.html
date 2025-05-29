@@ -1,0 +1,44 @@
+{% extends "managerbase.html" %}
+{% block content %}
+
+<div class="container">
+    <h2 style="font-style: italic; text-align: center; color: gray;">List of Members</h2>
+<!--table formatted to striped rows-->
+<table class="table table-striped table-hover table-bordered">
+
+    <thead class="table-success">
+    <!--getting required column headers for rows-->
+    <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Street</th>
+        <th>Suburb</th>
+        <th>City</th>
+        <th>Postal Code</th>
+        <th>Joining Date</th>
+    </tr>
+    </thead>
+    {% for member in members %} <!--for loop for getting data from table-->
+    <tr>
+        <!--required columns to display the table content-->
+        <td>{{member[0]}}</td>
+        <td>{{member[1]}}</td>
+        <td>{{member[2]}}</td>
+        <td>{{member[3]}}</td>
+        <td>{{member[4]}}</td>
+        <td>{{member[5]}}</td>
+        <td>{{member[6]}}</td>
+        <td>{{member[7]}}</td>
+        <td>{{member[8]}}</td>
+        <td>{{member[9]}}</td>
+       <td> <a href="/memberedit/{{ member[10] }}" class=" d-flex mt-2"> <button class="btn1 btn-dark ">Edit Profile</button> </a> <br><br></td>
+
+    </tr>
+{% endfor %}
+</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<article id="MainContent" class="node-page view-mode-full node-by-viewer clearfix node mb-2em" typeof="foaf:Document" about="/membership">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-header bg1 f1">
+              <h4>Basic Membership</h4>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-body p-0">
+              <div class="row g-0">
+                  <div class="container py-5 h-100">
+                    <div class="row justify-content-center align-items-center h-10">
+                      <div class="col-12 col-lg-9 col-xl-7">
+                        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                          <div class="card-body p-4 p-md-5">
+                            {% if msg %}
+                            <div class="alert alert-danger">{{ msg }}</div>
+                            {% endif %}
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                            <form method="POST" action="{{ url_for('register') }}">
+                
+                              <div class="row">
+                                <div class="col-md-6 mb-4">
+                
+                                  <div class="form-outline">
+                                    <input type="text" id="firstName" name="firstname" class="form-control form-control-lg" pattern="^[a-zA-Z ]+$" required oninvalid="this.setCustomValidity('Please enter a valid first name. Only letters and spaces are allowed')" oninput="this.setCustomValidity('')" />
+                                    <label class="form-label" for="firstName">First Name</label>
+                                  </div>
+                
+                                </div>
+                                <div class="col-md-6 mb-4">
+                
+                                  <div class="form-outline">
+                                    <input type="text" id="lastName" name="lastname"class="form-control form-control-lg" pattern="^[a-zA-Z ]+$" required oninvalid="this.setCustomValidity('Please enter a valid last name. Only letters and spaces are allowed')" oninput="this.setCustomValidity('')" />
+                                    <label class="form-label" for="lastName">Last Name</label>
+                                  </div>
+                
+                                </div>
+                              </div>
+                
+                              <div class="row">
+                                <div class="col-md-6 mb-4">
+                
+                                  <div class="form-outline">
+                                    <input type="text" id="mobile" name="mobile" class="form-control form-control-lg" required pattern="^[0-9]{9,11}$" oninvalid="this.setCustomValidity('Please enter a valid mobile number. It should be between 9 and 11 digits long.')" oninput="this.setCustomValidity('')" />
+                                    <label class="form-label" for="mobile">Mobile</label>
+                                  </div>
+                
+                                </div>
+                                <div class="col-md-6 mb-4">
+                
+                                  <div class="form-outline">
+                                    <input type="email" id="emailAddress" name="email" class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')" />
+                                    <label class="form-label" for="emailAddress">Email</label>
+                                  </div>
+                
+                                </div>
+                              </div>
+                
+                              <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                  <div class="form-outline">
+                                    <input type="text" id="street" name="street" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please enter a valid street name. Only letters, numbers and spaces are allowed.')" oninput="setCustomValidity('')" />
+                                    <label class="form-label" for="street">Street</label>
+                                  </div>
+                              
+                                </div>
+
+                                <div class="col-md-6 mb-4 pb-2">
+                              
+                                  <div class="form-outline">
+                                    <input type="text" id="suburb" name="suburb" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please enter a valid suburb name. Only letters, numbers and spaces are allowed.')" oninput="setCustomValidity('')"/>
+                                    <label class="form-label" for="suburb">Suburb</label>
+                                  </div>
+                              
+                                </div>
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+                                  <div class="form-outline">
+                                      <select name="city" id="city" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please select a city.')" oninput="setCustomValidity('')">
+                                        <option value="">Select City</option>
+                                        <option value="Auckland">Auckland</option>
+                                        <option value="Christchurch">Christchurch</option>
+                                        <option value="Dunedin">Dunedin</option>
+                                        <option value="Gisborne">Gisborne</option>
+                                        <option value="Hamilton">Hamilton</option>
+                                        <option value="Hastings">Hastings</option>
+                                        <option value="Hibiscus Coast">Hibiscus Coast</option>
+                                        <option value="Invercargill">Invercargill</option>
+                                        <option value="Lower Hutt">Lower Hutt</option>
+                                        <option value="Napier">Napier</option>
+                                        <option value="Nelson">Nelson</option>
+                                        <option value="New Plymouth">New Plymouth</option>
+                                        <option value="Palmerston North">Palmerston North</option>
+                                        <option value="Porirua">Porirua</option>
+                                        <option value="Rotorua">Rotorua</option>
+                                        <option value="Tauranga">Tauranga</option>
+                                        <option value="Upper Hutt">Upper Hutt</option>
+                                        <option value="Wellington">Wellington</option>
+                                        <option value="Whanganui">Whanganui</option>
+                                        <option value="Whangarei">Whangarei</option>
+                                      </select>
+                                      <label class="form-label" for="city">City</label>
+                                  </div>
+                              </div>
+                              
+                                <div class="col-md-6 mb-4 pb-2">
+                              
+                                  <div class="form-outline">
+                                    <input type="text" id="postalcode" name="postalcode" class="form-control form-control-lg" required pattern="[0-9]{4}" oninvalid="setCustomValidity('Please enter a valid postal code (4 digits).')" oninput="setCustomValidity('')" />
+                                    <label class="form-label" for="postalcode">Postal Code</label>
+                                  </div>
+                              
+                                </div>
+                              </div>
+
+                              <div class="mt-4 pt-2">
+                                <input class="btn1 btn-dark btn-lg" type="submit" value="Submit" />
+                                <input class="btn1 btn-dark btn-lg ms-3" type="reset" value="Clear" />
+                              </div>
+                                                      
+                            </form>
+                              
+                            {% endblock %}

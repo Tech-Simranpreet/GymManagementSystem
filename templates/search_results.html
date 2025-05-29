@@ -1,0 +1,184 @@
+{% extends "mabase.html" %}
+
+{% block content %}
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .table td,
+    .table th {
+        font-size: 12px;
+        padding: 0.25rem;
+    }
+
+    .custom-btn {
+        font-size: 12px;
+        padding: 0.25rem 0.5rem;
+        line-height: 1;
+    }
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this member? This will also delete the member\'s group class/specialised class bookings');
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "searching": false,
+            "lengthChange": true,
+            "language": {
+                "lengthMenu": "Show _MENU_ entries",
+                "zeroRecords": "No results found",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                },
+            },
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            alert(message);
+        }
+    });
+</script>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+    <title>Search Results</title>
+</head>
+
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <div class="container" >
+        <h1 style="color: white;">Search Members</h1>
+        <form method="POST" action="/search_members">
+            <label for="search_query" style="color: white;">Search by User ID, First Name, or Last Name or click "Search" to display all members</label>
+            <input type="text" name="search_query" id="search_query">
+            <input type="submit" value="Search">
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" style="width:100%">
+                <thead class="table-success">
+                    <tr>
+                        <th>Member ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Street</th>
+                        <th>Suburb</th>
+                        <th>City</th>
+                        <th>Postal Code</th>
+                        <th>Subscription</th>
+                        <th>Membership Status</th>
+                        <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody style="background-color: white;">
+                            {% for member in members %}
+                            <tr>
+                                {% for value in member[:10] %}
+                                <td>{{ value }}</td>
+                                {% endfor %}
+                                <td>
+                                    {% if member[9] == 'Monthly' %}
+                                        {% if member[10] is not none %}
+                                            {% if member[10] > 0 %}
+                                                {% if member[10] < 14 %}
+                                                    {{ member[10] }} days left
+                                                    <form method="POST" action="/send_email_form" style="display:inline;">
+                                                        <input type="hidden" name="to" value="{{ member[4] }}">
+                                                        <input type="hidden" name="subject" value="Membership Expiration Reminder">
+                                                        <input type="hidden" name="body" value="Hello {{ member[1] }},
+                                                        
+Your membership is expiring in {{member[10]}} days.
+                                
+Please renew your membership to continue enjoying our services.
+                                
+Thank you.
+                                
+Best regards,
+Manager
+Lincoln Fitness">
+                                                        <button type="submit" class="btn btn-info custom-btn" title="Send email reminder"><i class="fas fa-envelope"></i>Email</button>
+                                                    </form>
+                                                {% elif member[10] > 14 %}
+                                                    Active
+                                                {% endif %}
+                                            {% else %}
+                                                Expired
+                                                <form method="POST" action="/send_email_form" style="display:inline;">
+                                                    <input type="hidden" name="to" value="{{ member[4] }}">
+                                                    <input type="hidden" name="subject" value="Membership Expiration Reminder">
+                                                    <input type="hidden" name="body" value="Hello {{ member[1] }},
+                                                        
+Your membership is expired.
+                                
+Please renew your membership to continue enjoying our services.
+                                
+Thank you.
+                                
+Best regards,
+Manager
+Lincoln Fitness">
+                                                    <button type="submit" class="btn btn-info custom-btn" title="Send email reminder"><i class="fas fa-envelope"></i>Email</button>
+                                                </form>
+                                            {% endif %}
+                                        {% else %}
+                                            N/A
+                                        {% endif %}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <form method="GET" action="/manageredit/{{ member[0] }}">
+                                            <input type="hidden" name="userid" value="{{ member[0] }}">
+                                            <button type="submit" class="btn btn-warning custom-btn" title="Edit this member">Edit</button>
+                                        </form>
+                                        <form method="POST" action="/delete_member" style="display:inline;">
+                                            <input type="hidden" name="member_id" value="{{ member[11] }}">
+                                            <button type="submit" onclick="return confirmDelete();" class="btn btn-danger custom-btn" title="Delete this member">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                        </div>
+                        </div>
+                        </body>
+                        {% endblock %}
+
+                       

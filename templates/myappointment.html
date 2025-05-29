@@ -1,0 +1,46 @@
+{% extends "trainerbase.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myappointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <h1>my appointment tables</h1>
+
+   {{trainerappointments}}
+    <hr>
+   
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Session ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Class Type</th>
+          <th>Class Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for appointment in appointments%}
+        <tr>
+          {%for item in appointment%}
+          <td>{{item}}</td>
+          {%endfor%}
+         
+        </tr>
+        {%endfor%}
+
+      </tbody>
+    </table>
+
+</body>
+</html>

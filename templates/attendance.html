@@ -1,0 +1,25 @@
+<section> 
+    
+    <form method = "POST"  action="/attendance">
+
+    <div class="mb-3">
+        <label for="Search">Search</label>
+        <select class="form-select form-select-lg mb-3" id="search" name="Search" required>
+            <option value="">Search</option>
+            <option value="firstname">Member Name</option>
+            <option value="classdate">Class Date</option>
+        </select>
+    </div>    
+
+    <div class="mb-3">
+        <label for="Enterkeyword">Enter the keyword</label>
+        <input type="text" class="form-control" id="enterkeyword" name="value" required>
+    </div>
+
+    
+    <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-success" type="submit">Search</button>
+        <button class="btn btn-secondary" type="reset">Reset</button>
+    </div>
+</form>
+</section>

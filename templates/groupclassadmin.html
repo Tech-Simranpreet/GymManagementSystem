@@ -1,0 +1,71 @@
+{% extends "trainerbase.html" %}
+{% block content %}
+<!-- code in here to display a list of loans -->
+<!-- loanlist is the variable passed in containing list of loans -->
+
+
+
+<h2 style="text-align:center;"> Trainer's Session </h2>
+<div class="container">
+    <form method = "POST"  action="{{ url_for('trainersession') }}">
+        <!--<div class="mb-3">
+            <label for="trainername">Trainer Name</label>
+            <input type="text" class="form-control" name="first_name" placeholder="Trainer Name" required>
+            </div>
+    
+    
+            <div class="mb-3">
+            <label for="classtime"></label> Time</label>
+            <input type="text" class="form-control" name="classtime" placeholder="Class Time">
+            </div>-->
+
+            <div class="mb-3">
+                <label for="Search">Search</label>
+                <select class="form-select form-select-lg mb-3" id="search" name="Search" required>
+                    <option value="">Search</option>
+                    <option value="first_name">Trainer Name</option>
+                    <option value="classtime">Class Time</option>
+                </select>
+            </div>    
+
+            <div class="mb-3">
+                <label for="Enterkeyword">Enter the keyword</label>
+                <input type="text" class="form-control" id="enterkeyword" name="value" required>
+            </div>
+            
+    
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-success" type="submit">Search</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </div>
+        </form>
+                  
+<table class="table table-striped">
+    <tr> <!--getting column headers-->
+        <th>Trainer ID</th>
+        <th>Trainer Name</th>
+        <th>Class Name</th>
+        <th>Class Time</th>
+        <th>GroupClass ID</th>
+        <th>Session ID</th>
+        <!--<th>Book Status</th>
+        <th>Book Format</th>
+        <th>Action</th>-->
+
+    </tr>
+    <!--defining global variable with namespace-->
+   
+    {% for session in trainerlist %} 
+    <tr>
+        <td>{{session[0]}}</td>
+        <td>{{session[1]}}</td>
+        <td>{{session[2]}}</td>
+        <td>{{session[3]}}</td>
+        <td>{{session[4]}}</td>
+        <td>{{ session[5]}}</td>
+   
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

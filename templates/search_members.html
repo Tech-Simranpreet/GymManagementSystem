@@ -1,0 +1,26 @@
+{% extends "mabase.html" %}
+{% block content %}
+<head>
+    <title>Search Members</title>
+</head>
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <div class="container" style=" padding: 3%;
+    background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+    background: rgba(244, 237, 237, 0.803);">
+
+        <h1>Search Members</h1>
+        {% if message %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+        <form method="POST" action="/search_members">
+            <label for="search_query">Search by User ID, First Name, or Last Name or click "Search" to display all members</label>
+            <input type="text" name="search_query" id="search_query">
+            <input type="submit" value="Search">
+
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

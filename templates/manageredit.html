@@ -1,0 +1,85 @@
+{% extends "managerbase.html" %}
+{% block content %}
+    <head></head>
+    
+    <body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+        <div class="container my-5" style="
+background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+background: rgba(244, 237, 237, 0.803);">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Edit Profile</h1>
+    <form method="POST" action="/admin/updatemember" style="
+    background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+    background: rgba(244, 237, 237, 0.803);">
+    
+        <div class="form-floating mb-3">
+            <p class="text-center"> 
+                <input name="firstname" class="form-control form-control-lg" pattern="^[a-zA-Z ]+$" required oninvalid="this.setCustomValidity('Please enter a valid first name. Only letters and spaces are allowed')" oninput="this.setCustomValidity('')" value="{{ member[1] }}" type="text" placeholder="First Name" autocomplete="off" required>
+            </p>
+           
+        </div>
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="lastname" class="form-control form-control-lg" pattern="^[a-zA-Z ]+$" required oninvalid="this.setCustomValidity('Please enter a valid last name. Only letters and spaces are allowed')" oninput="this.setCustomValidity('')" value="{{ member[2] }}" type="text" placeholder="Last Name" autocomplete="off" required>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="mobile" class="form-control form-control-lg" required pattern="^[0-9]{9,11}$" oninvalid="this.setCustomValidity('Please enter a valid mobile number. It should be between 9 and 11 digits long.')" oninput="this.setCustomValidity('')" value="{{ member[3] }}" type="text" placeholder="Mobile Number" autocomplete="off" required>
+            </p>
+        </div> 
+        
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="email" class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')" value="{{ member[4] }}" type="email" placeholder="Email" autocomplete="off" required>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="street" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please enter a valid street name. Only letters, numbers and spaces are allowed.')" oninput="setCustomValidity('')" value="{{ member[5] }}" type="text" placeholder="Street" autocomplete="off" required>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="suburb" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please enter a valid suburb name. Only letters, numbers and spaces are allowed.')" oninput="setCustomValidity('')" value="{{ member[6] }}" type="text" placeholder="Suburb" autocomplete="off" required>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+                <select name="city" id="city" class="form-control form-control-lg" required oninvalid="setCustomValidity('Please select a city.')" oninput="setCustomValidity('')">
+                  <option value="">Select city</option>
+                  {% for city in ["Auckland", "Christchurch", "Dunedin", "Gisborne", "Hamilton", "Hastings", "Hibiscus Coast", "Invercargill", "Lower Hutt", "Napier", "Nelson", "New Plymouth", "Palmerston North", "Porirua", "Rotorua", "Tauranga", "Upper Hutt", "Wellington", "Whanganui", "Whangarei"] %}
+                    {% if city == member[7] %}
+                      <option value="{{ city }}" selected>{{ city }}</option>
+                    {% else %}
+                      <option value="{{ city }}">{{ city }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+        </div>
+
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <input name="postalcode" class="form-control form-control-lg" required pattern="[0-9]{4}" oninvalid="setCustomValidity('Please enter a valid postal code (4 digits).')" oninput="setCustomValidity('')" value="{{ member[8] }}" type="text" placeholder="Postal Code" autocomplete="off" required>
+            </p>
+        </div>
+        <p>
+            <input name="userid" value="{{ userid }}" type="hidden">
+        </p>
+    
+        <div class="form-floating mb-3">
+            <p class="text-center">
+            <button type="submit" class="btn1 btn-dark">Save Changes</button>
+            <button type="button" class="btn1 btn-dark" onclick="window.history.back();">Cancel</button>
+            </p>
+            </div>        
+    </form>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

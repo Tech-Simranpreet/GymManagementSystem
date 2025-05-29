@@ -1,0 +1,23 @@
+{% extends "memberbase.html" %}
+{% block content %}
+<html>
+    <head>
+        <title>Book Specialized Class</title>
+    </head>
+    <body>
+        <h1>Book Specialized Class session</h1>
+        <form method="POST" action="/membersession/add/">
+            
+            <div class="form-group">
+                <label for="member_id">Member ID:</label>
+                <input type="int" name="member_id" class="form-control" id="member_id">
+            </div>
+            <div class="form-group">
+                <label for="class_type">Class Type:</label>
+                <input type="text" class="form-control" name="class_type" id="class_type">  
+            </div>
+            <input type="hidden" name="specializedclass_sessionid" value="{{ specializedclass_sessionid }}">
+            <button type="submit" class="btn btn-primary">Book Session</button>
+        </form>
+    </body>
+</html>

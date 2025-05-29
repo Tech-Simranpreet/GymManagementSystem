@@ -1,0 +1,76 @@
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--googlefonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display:ital@1&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!--stylesheet-->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Lincoln Gym</title>
+  </head>
+
+  <style>
+    
+    li {
+      float: left;
+      margin: auto;
+    }
+    
+   
+    </style>
+
+  <body>
+    
+    <nav class="navbar navbar-expand md bg-dark">
+      <div class="container-fluid px-5">
+        <a class="navbar-brand" href="#"><h2> LINCOLN <span> FITNESS </span> </h2></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('search_members') }}" style="font-size: x-small; margin: auto;">Members</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('list_trainers') }}" style="font-size: x-small; margin: auto;">Trainer</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('popularclasses') }}" style="font-size: x-small; margin: auto;">Popular Class</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('attendancemember') }}" style="font-size: x-small; margin: auto;">Attendence</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/currentbookings"style="font-size: x-small; margin: auto;">Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('financialreport') }}" style="font-size: x-small; margin: auto;">
+                  Financial Report
+                </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}" style="font-size: x-small; margin: auto;">Log out</a>
+                  </li>
+          </ul>
+          <form class="d-flex">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+      
+</body>
+
+{% block content %}   {% endblock %}
+
+
+</html>

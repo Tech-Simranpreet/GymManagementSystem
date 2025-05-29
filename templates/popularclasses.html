@@ -1,0 +1,56 @@
+{% extends "managerbase.html" %}
+{% block content %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "paging": false,
+            "ordering": true,
+            "info": false,
+            "searching": false,
+            "lengthChange": true,
+            "language": {
+                "lengthMenu": "Show _MENU_ entries",
+                "zeroRecords": "No results found",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                },
+            },
+        });
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <h2 style="margin: auto; text-align: center; color: aliceblue;">Popular classes</h2>
+<br>
+<table class="table" style="
+background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+background: rgba(244, 237, 237, 0.803);">
+    <thead>
+        <tr>
+            <th> Class Name </th>
+            <th> Total Bookings</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for class in popularclasses %}
+        <tr>
+            <td>{{ class[0] }}</td>
+            <td>{{ class[1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+ 
+
+</table>
+</body>
+{% endblock %}

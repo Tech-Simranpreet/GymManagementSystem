@@ -1,0 +1,65 @@
+{% extends "trainerbase.html" %}
+{% block content %}
+
+
+
+        <h1>Group Class Course Schedule</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Class ID</th>
+                    <th>Class Name</th>
+                    <th>Class Descrption</th>
+                    <th>Session ID</th>
+                    <th>Session Date</th>
+                    <th>Class Capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sessions in group_course_trainer_classes %}
+                    <tr>
+                        <td>{{ sessions[0] }}</td>
+                        <td>{{ sessions[1] }}</td>
+                        <td>
+                        {{ sessions[2] }}</a>
+                    </td>
+                    <td>
+                        <a href="/trainer/course_members?group_course_session_id={{sessions[3]}}">{{ sessions[3] }}<a>
+                        </td>
+                        <td>{{ sessions[4] }}</td>
+                        <td>{{ sessions[5] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <tr>
+            <tr>
+                <h1 style="font-size: large;">Specialized Class Course Schedule</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Class ID</th>
+                            <th>Class type</th>
+                            <th>Class Descrption</th>
+                            <th>Session ID</th>
+                            <th>Session Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sessions in specilized_course_trainer_classes %}
+                            <tr>
+                                <td>{{ sessions[0] }}</td>
+                                <td>{{ sessions[1] }}</td>
+                                <td>{{ sessions[2] }}</td>
+                                <td>
+                                    <a href="/trainer/course_members?specilized_course_session_id={{sessions[3]}}">{{ sessions[3] }}</a>
+                                </td>
+                                <td>{{ sessions[4] }}</td>
+                    
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </body>
+        </html>
+        {% endblock %}

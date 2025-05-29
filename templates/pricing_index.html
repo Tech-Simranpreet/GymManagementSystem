@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<html>
+
+
+<head>
+
+ <style>
+
+ /* Card styles */
+
+.card {
+
+border: 1px solid #ddd;
+
+ border-radius: 5px;
+
+ padding: 10px;
+
+ box-shadow: 0 2px 4px rgba(0,0,0,.1);
+
+}
+
+
+
+
+.card img {
+
+ border-radius: 5px;
+
+ object-fit: cover;
+
+ height: 200px;
+
+ width: 300px;
+
+}
+
+
+
+
+.card-title {
+
+ font-size: 20px;
+
+ font-weight: bold;
+
+ margin-top: 10px;
+
+ margin-bottom: 5px;
+
+}
+
+
+
+
+.card-text {
+
+ font-size: 16px;
+
+ line-height: 1.4;
+
+ margin-bottom: 10px;
+
+}
+
+
+
+
+.card-price {
+
+ font-size: 18px;
+
+ font-weight: bold;
+
+ color: rgb(235, 85, 43);
+
+}
+
+
+
+
+/* Grid styles */
+
+.card-group {
+
+ display: grid;
+
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+ gap: 20px;
+
+ margin-top: 20px;
+
+}
+
+
+
+
+ </style>
+
+
+
+
+</head>
+
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+
+
+
+<div class="card-group" style="
+background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+background: rgba(204, 204, 204, 0.5);">
+
+ <div class="card">
+
+ <img src="https://www.derbyarena.co.uk/files/cache/c72a557b5096d2b197f2bbd1e7a9d027_f1567.jpg" class="card-img-top" alt="image" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Combination Classes</h5>
+
+ <p class="card-text">If you're looking for efficiency, take one of our combination classes that include cardio, strength and flexibility.</p>
+
+ <p class="card-price">$100 Per Session</p>
+
+ </div>
+
+ </div>
+
+
+
+
+
+ <div class="card">
+
+ <img src="https://www.victoriapilates.ca/wp-content/uploads/2013/11/Pilates2012_-150.jpg" class="card-img-top" alt="image2" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Pilates</h5>
+
+ <p class="card-text">Pull out your gym mat and get ready to do a series of movements that will stabilize and strengthen your core.</p>
+
+ <p class="card-price">$50 Per Session</p>
+
+ </div>
+
+ </div>
+
+
+
+
+
+
+
+ <div class="card">
+
+ <img src="https://iconichealthclubs.ie/dartry/wp-content/uploads/2016/05/spin-2-1030x772.jpg" class="card-img-top" alt="image3" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Spin Cycle</h5>
+
+ <p class="card-text"> We love to mix it up at Remix. With each instructor you'll find that they bring their unique style and spin to our cycling classes. You'll find an incredible smooth ride with our Schwinn Bikes that can accommodate both clip in cycle shoes OR sneakers.</p>
+
+ <p class="card-price">$60 Per Session</p>
+
+ </div>
+
+ </div>
+
+
+
+
+
+
+
+ <div class="card">
+
+<img src="https://curvygoddessworkout.com/wp-content/uploads/2013/03/bigstock-Fitness-center-senior-woman-ex-30986588.jpg" class="card-img-top" alt="image4" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Specific Focused Class</h5>
+
+ <p class="card-text">If you're looking to focus on a specific body part, like your core or your arms, these classes are for you!</p>
+
+ <p class="card-price">$80 Per Session</p>
+
+ </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+ <div class="card">
+
+ <img src="https://www.grouperechercheactionsante.fr/wp-content/uploads/2019/08/cardio-training.jpg" class="card-img-top" alt="image4" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Cardio Classes</h5>
+
+ <p class="card-text">If you're looking to build endurance and strengthen your heart and lunges, try one of our cardio classes.</p>
+
+<p class="card-price">$40 Per Session</p>
+
+ </div>
+
+ </div>
+
+
+
+
+
+
+
+
+ <div class="card">
+
+ <img src="https://cdn.shopify.com/s/files/1/0038/0878/8544/articles/FeaturedImage_StrengthTraining.jpg?v=1593102095" class="card-img-top" alt="image4" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Strength Training Class</h5>
+
+ <p class="card-text">If you're looking for a low impact workout that'll focus on body composition and building your strength, then try one of our strength training classes.</p>
+
+ <p class="card-price">$50 Per Session</p>
+
+ </div>
+
+</div>
+
+
+
+ <div class="card">
+
+ <img src="https://womenfitness.net/wp/wp-content/uploads/2016/07/z1.jpg" class="card-img-top" alt="image4" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+ <h5 class="card-title">Zumba</h5>
+
+ <p class="card-text"> This dance class features high- and low-intensity intervals that help improve cardiovascular fitness while also enhancing balance, coordination, agility.</p>
+
+ <p class="card-price">$90 Per Session</p>
+
+</div>
+
+ </div>
+
+
+
+ <div class="card">
+
+ <img src="https://www.arenaathletic.com/wp-content/uploads/2017/02/pic1.jpg" class="card-img-top" alt="image4" style="height: 200px; width: 300px;">
+
+ <div class="card-body">
+
+<h5 class="card-title">BootCamp</h5>
+
+ <p class="card-text">Boot camp workouts include a range of cardio, strength training, and speed exercises all in one session.</p>
+
+ <p class="card-price">$70 Per Session</p>
+
+</div>
+
+ </div>
+
+</div>
+</body>
+</html>
+
+{% endblock %}

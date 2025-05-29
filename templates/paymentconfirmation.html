@@ -1,0 +1,47 @@
+{% extends "memberbase.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Confirmation</title>
+    <style>
+        .container{
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1{
+            font-size: 48px;
+            color: #333;
+            margin-top: 50px;
+        }
+        p{
+            font-size: 24px;
+            color: #266;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="alert alert-success" role="alert">
+            Payment successful
+        </div>
+        <div class="card">
+            <div class="card-header">
+    <h3 class="card-title">Payment Confirmation</h3>
+            </div>
+            <div class="card-body">
+               <p>Your payment has been processed successfully. Thank you for your payment!</p>
+               <p>Your payment amount: ${{ payment_amount }}</p>
+
+    <a href="/profile" class="btn btn-dark pull-right">BACK</a>
+    </div>
+    <div>
+    </div>
+        </div>
+
+</body>
+</html>
+{% endblock %}

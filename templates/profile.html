@@ -1,0 +1,150 @@
+{% extends "memberbase.html" %}
+{% block content %}
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Member Profile</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f7f7f7;
+            }
+            .container{
+                max-width: 500px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px #888888;
+                text-align: justify;
+            }
+            h1{
+                font-size: 36px;
+                color: #333333;
+                margin-bottom: 20px;
+            }
+            .details{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+            }
+            .details strong{
+                font-size: 18px;
+                color:#333333;
+                margin-right: 10px;
+            }
+            .profile-pic{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+            .info{
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .info-text{
+                display: flex;
+                flex-direction: column;
+            }
+            .edit-btn{
+                color: rgb(42, 42, 124);
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-right: 10px;
+                width:fit-content;
+            }
+            .logout-btn{
+                background-color: rgb(42, 42, 124);
+                margin-right: 10px;
+                text-decoration: none;
+            }
+            .class-btn{
+                background-color: rgb(42, 42, 124);
+                text-decoration: none;
+            }
+
+            .flex-parent{
+                display:flex;
+            }
+
+            .jc-center {
+            justify-content: center;
+            }
+
+            .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 2px solid #e7e7e7;
+            }
+
+            .button:hover {background-color: #e7e7e7;}
+        </style>
+	</head>
+	<body>
+        <body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+
+        <div class="container" style=" 
+        background: rgb(222, 222, 222); /* Fallback for older browsers without RGBA-support */
+        background: rgba(255, 255, 255, 0.815);">
+        {% if message %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Welcome {{member[1]}} {{member[2]}}</h1>
+        <p>Here, you have the power to personalize your experience and gain access to our wide range of classes tailored to suit your needs.</p> 
+        <p>Simply click the buttons below to edit your personal details, book group classes, and explore specialized classes.</p>
+        
+        <div class="info">
+            <img class="profile-pic" src="/static/img_avatar.png" alt="Profile Picture">
+        <div class="info-text text-align">
+            <div class="row justify-content-center ">
+            <div class="details text-align">
+        <strong>First Name:</strong>{{member[1]}}
+        </div>
+        <div class="details text-align">
+        <strong>Last Name:</strong>{{member[2]}}
+        </div>
+        <div class="details text-align">
+        <strong>Mobile:</strong>{{member[3]}}
+        </div>
+        <div class="details text-align">
+        <strong>Email:</strong>{{member[4]}}
+        </div>
+        <div class="details text-align">
+        <strong>Street:</strong>{{member[5]}}
+        </div>
+        <div class="details text-align">
+        <strong>Suburb:</strong>{{member[6]}}
+        </div>
+        <div class="details text-align">
+        <strong>City:</strong>{{member[7]}}
+         </div>
+        <div class="details text-align">
+        <strong>Postal Code:</strong>{{member[8]}}
+        </div>
+       
+        <a href="/memberedit/{{ member[10] }}" class=" d-flex mt-2" style="text-decoration: none;"> <button class="btn1 btn-dark " style="text-decoration: none;">Edit Profile</button> </a> <br><br>
+     
+
+        </div>
+        </div>
+    </body>
+</html>
+        
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <title>New Member Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #f2f2f2;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: rgb(42, 42, 124);
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>New Member Confirmation</h1>
+    <h2>Membership Number: {{ userid }}</h2>
+    <p>Thank you for joining Lincoln Fitness!</p>
+    <p>Your details are:</p>
+    <table>
+        <tr>
+            <th>Details</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td>{{ firstname }}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{ lastname }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ email }}</td>
+        </tr>
+        <tr>
+            <td>Street:</td>
+            <td>{{ street }}</td>
+        </tr>
+        <tr>
+            <td>Suburb:</td>
+            <td>{{ suburb }}</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>{{ city }}</td>
+        </tr>
+        <tr>
+            <td>Postcode:</td>
+            <td>{{ postalcode }}</td>
+        </tr>
+        <tr>
+            <td>Mobile Number:</td>
+            <td>{{ mobile }}</td>
+        </tr>
+        <tr>
+            <td>Join Date:</td>
+            <td>{{ join_date }}</td>
+        </tr>
+    </table>
+    <p>A confirmation email has been sent to you.</p>
+</body>
+</html>
+{% endblock %}

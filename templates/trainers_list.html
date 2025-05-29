@@ -1,0 +1,107 @@
+{% extends "managerbase.html" %}
+
+{% block content %}
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .table td,
+    .table th {
+        font-size: 12px;
+        padding: 0.25rem;
+    }
+
+    .custom-btn {
+        font-size: 12px;
+        padding: 0.25rem 0.5rem;
+        line-height: 1;
+    }
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this trainer?');
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "paging": false,
+            "ordering": true,
+            "info": false,
+            "searching": false,
+            "lengthChange": true,
+            "language": {
+                "lengthMenu": "Show _MENU_ entries",
+                "zeroRecords": "No results found",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                },
+            },
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            alert(message);
+        }
+    });
+</script>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+    <h2 style="margin: auto; text-align: center; color: aliceblue;">List of Trainers</h2>
+</head>
+
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <div class="container" >
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" style="width:100%">
+                <thead class="table-success">
+                    <tr>
+                        <th>Trainer ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Speciality</th>
+                        <th>UserID</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: white;">
+                    {% for trainer in trainers %}
+                    <tr>
+                        {% for value in trainer %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock %}

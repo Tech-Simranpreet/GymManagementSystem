@@ -1,0 +1,71 @@
+{% extends "memberbase.html" %}
+{% block content %}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "paging": false,
+            "ordering": true,
+            "info": false,
+            "searching": false,
+            "lengthChange": true,
+            "language": {
+                "lengthMenu": "Show _MENU_ entries",
+                "zeroRecords": "No results found",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                },
+            },
+        });
+    });
+</script> 
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+    <h2 style="text-align: center; color: aliceblue;">Available Sessions for groups</h2>
+    </head>
+
+    <body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+        <div class="container" style="
+        background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+        background: rgba(244, 237, 237, 0.803);">
+    <table class="table table-striped table-hover table-bordered">
+    
+        <thead class="table-success">
+        <tr>
+            <th>Class Time</th>
+            <th>Class Date</th>
+            <th>Class Bookings</th>
+            <th>Class Name</th>
+            <th>Trainer Name</th>
+            <th>Action</th>
+            
+        </tr>
+        </thead>
+        {% for sessiongroup in sessiongroup %} 
+        <tr>
+            <td>{{sessiongroup[2]}}</td>
+            <td>{{sessiongroup[3]}}</td>
+            <td>{{sessiongroup[4]}}</td>
+            <td>{{sessiongroup[5]}}</td>
+            <td>{{sessiongroup[7]}}</td>
+            <div class="mb-3">
+            <td><a href="{{ url_for('bookgroup', session_id =sessiongroup[0]) }}" class="btn btn-primary pull-right">BOOK</a></td>
+            </div>   
+    
+        </tr>
+    {% endfor %}
+    </table>
+    </div>
+    </body>
+    {% endblock %}

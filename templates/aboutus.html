@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+    <head>
+        <title>
+            Our Gym Facility
+        </title>
+        <meta charset="UTF-8">
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0;
+            }
+            .container{
+                width: 90%;
+                margin: 0 auto;
+            }
+        </style>
+
+    </head>
+    <body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+        <div class="container" style=" 
+        background: rgb(222, 222, 222); /* Fallback for older browsers without RGBA-support */
+        background: rgba(255, 255, 255, 0.815);">
+        <h1>Welcome to Our Gym Facility</h1>
+        <p>Operating since 1979, we offer a warm, friendly, community gym space with many training options. We are a REPS registered facility and staff are REPS registered.</p>
+
+        <p> We have multiple group exercise studios which hold over 45 group exercise classes per week from 
+            dance to stretch, weights and cardio. We also offer Lincoln freestyle classes and host regular 
+            senior and pre-school classes throughout the week. Our facility has a modern cardio and weights 
+            gym, indoor sprint track, bouldering room, cycle studio, yoga studio, boxing studio, squash courts 
+            and indoor sports hall. We also offer members an outdoor fitness track, outdoor netball and tennis 
+            courts as well as open green spaces and sports fields.</p>
+        </div>
+    </body>
+</html>
+{% endblock %}

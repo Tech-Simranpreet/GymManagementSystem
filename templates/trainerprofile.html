@@ -1,0 +1,67 @@
+{% extends "trainerbase.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<body>
+
+   <!--nav bar -->
+   <!-- <button type="button" class="btn btn-info">
+    <a href="/trainer">
+        <h3>Trainer Home</h3>
+    </a>
+</button>
+<button type="button" class="btn btn-info">
+    <a href="/trainer/profile">
+        <h3>My Profile</h3>
+    </a>
+</button>
+<button type="button" class="btn btn-info">
+    <a href="/loginout">
+        <h3>log out</h3>
+    </a>
+</button> -->
+<!--nav bar setting -->
+
+<br><br><br>
+    <h1>My profile</h1>
+
+    <table class="table table-striped" style="margin: auto;">
+        <thead>
+          <tr>
+            <th>Trainer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Speciality</th>
+            
+          </tr>
+        </thead>
+  
+        <tbody>
+          {%for trainerprofile in trainerprofile%}
+          <tr>
+           
+            <td>{{trainerprofile[0]}}</td>
+            <td>{{trainerprofile[1]}}</td>
+            <td>{{trainerprofile[2]}}</td>
+            <td>{{trainerprofile[3]}}</td>
+            <td>{{trainerprofile[4]}}</td>
+            <td>{{trainerprofile[5]}}</td>
+            <td>{{trainerprofile[6]}}</td>
+            
+        
+           
+          </tr>
+          {%endfor%}
+
+        </tbody>
+      </table>
+    
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+    
+<head>
+    <style>
+    /* Card styles */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.card img {
+  border-radius: 5px;
+  object-fit: cover;
+  height: 200px;
+  width: 300px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: green;
+}
+
+/* Grid styles */
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+    </style>
+</head>
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+
+<div class="card-group" style=" padding:90px;
+width:1410px;
+background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+background: rgba(204, 204, 204, 0.5);">
+    <div class="card">
+        <img src="https://www.bristolymca.net/wp-content/uploads/2019/06/group-exercise-800x534.jpg" class="card-img-top" alt="image"  style="height: 200px; width: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">Group Exercises</h5>
+          <p class="card-text">Here at Lincoln Fitness, we've got a range of group exercise classes to suit everyone. Whether you’re looking to lose weight, get toned up, improve your fitness levels, get more flexible, or just get back into getting active after a long layoff, we’ve got the right class for you.</p>
+          <p class="card-text">Our group exercise classes last anywhere between 30 and 90 minutes and differ in intensity, depending on which class you’re attending.</p>
+          <a href="/groupclasses" class="btn btn-primary" style="background-color: rgb(34, 34, 106); margin: auto;">More</a>
+        </div>
+      </div>
+
+        <div class="card">
+            <img src="https://solpt.com/wp-content/uploads/2019/02/shutterstock_330214724.jpg" class="card-img-top" alt="image"  style="height: 200px; width: 300px;">
+            <div class="card-body">
+              <h5 class="card-title">Special Training Sessions</h5>
+              <p class="card-text">Whether squeezed into your lunch break or tacked onto your commute, one hour workouts can have huge benefits on your physical and mental wellbeing. Regular sessions that include both aerobic and resistance elements will put you well on your way to achieving (and even exceeding) the minimum amount of activity needed for good health.</p>
+              <a href="/specializedclasses" class="btn btn-primary" style="background-color: rgb(42, 42, 124); margin: auto;">More</a>
+            </div>
+          </div>   
+</div>  
+</body> 
+</html>
+
+{% endblock %}

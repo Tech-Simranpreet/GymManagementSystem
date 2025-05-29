@@ -1,0 +1,61 @@
+{% extends "trainerbase.html" %}
+{% block content %}
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+<div class="container">
+    <form method = "POST"  action="{{ url_for('groupappointments') }}">
+
+            <div class="mb-3" style="
+            background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+            background: rgba(244, 237, 237, 0.803); margin: auto;">
+                <label for="Search">Search</label>
+                <select class="form-select form-select-lg mb-3" id="search" name="Search" required style="margin: auto;">
+                    <option value="">Search</option>
+                    <option value="firstname">Member Name</option>
+                    <option value="classname">Class Name</option>
+                </select>
+            </div>    
+
+            <div class="mb-3" style="
+            background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+            background: rgba(244, 237, 237, 0.803);">
+                <label for="Enterkeyword">Enter the keyword</label>
+                <input type="text" class="form-control" id="enterkeyword" name="value" required>
+            </div>
+            
+    
+            <div class="d-grid gap-2 d-md-block" >
+                <button class="btn btn-success" type="submit">Search</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </div>
+        </form>
+                  
+<table class="table table-striped" style="
+background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+background: rgba(244, 237, 237, 0.803);">
+    <tr> <!--getting column headers-->
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Class Time</th>
+        <th>Class Date</th>
+        <th>Class ID</th>
+        <th>Class Name</th>
+        
+
+    </tr>
+    <!--defining global variable with namespace-->
+   
+    {% for group in grouplist %} 
+    <tr>
+        <td>{{group[0]}}</td>
+        <td>{{group[1]}}</td>
+        <td>{{group[2]}}</td>
+        <td>{{group[3]}}</td>
+        <td>{{group[4]}}</td>
+        <td>{{group[5]}}</td>
+        
+   
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

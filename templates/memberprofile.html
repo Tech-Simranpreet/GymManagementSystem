@@ -1,0 +1,41 @@
+{% extends "member.html" %}
+{% block content %}
+<!-- code in here to display a list of borrowers -->
+<!-- borrowerlist is the variable passed in containing list of loans -->
+
+<h2></h2>
+<!--table formatted to striped rows-->
+<table class="table table-striped table-hover ">
+
+    <thead class="table-success">
+    <!--getting required column headers for rows-->
+    <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Street</th>
+        <th>Suburb</th>
+        <th>City</th>
+        <th>Postal Code</th>
+        <th>Subscription_status</th>
+    </tr>
+    </thead>
+    {% for member in members %} <!--for loop for getting data from table-->
+    <tr>
+        <!--required columns to display the table content-->
+        <td>{{member[0]}}</td>
+        <td>{{member[1]}}</td>
+        <td>{{member[2]}}</td>
+        <td>{{member[3]}}</td>
+        <td>{{member[4]}}</td>
+        <td>{{member[5]}}</td>
+        <td>{{member[6]}}</td>
+        <td>{{member[7]}}</td>
+        <td>{{member[8]}}</td>
+
+    </tr>
+{% endfor %}
+
+{% endblock %}

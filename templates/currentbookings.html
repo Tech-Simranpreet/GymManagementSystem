@@ -1,0 +1,61 @@
+{% extends "managerbase.html" %}
+{% block content %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "searching": false,
+            "lengthChange": true,
+            "language": {
+                "lengthMenu": "Show _MENU_ entries",
+                "zeroRecords": "No results found",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                },
+            },
+        });
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <h2 style="margin: auto; text-align: center; color: aliceblue;">Class Bookings</h2>
+<br>
+<table class="table" style="
+    background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+    background: rgba(244, 237, 237, 0.803);">
+    <thead>
+    <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Class Date</th>
+        <th>Class Name</th>
+    </tr>
+</thead>
+<tbody>
+    {% for booking in currentbooking %} 
+    <tr>
+        <td>{{booking[2]}}</td>
+        <td>{{booking[6]}}</td>
+        <td>{{booking[5]}}</td>
+        <td>{{booking[7]}}</td>
+   
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</body>
+{% endblock %}

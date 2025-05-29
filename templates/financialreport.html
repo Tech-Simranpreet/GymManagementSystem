@@ -1,0 +1,25 @@
+{% extends "managerbase.html" %}
+{% block content %}
+<head>
+    <title>Financial Report</title>
+</head>
+<body class="img js-fullheight" style="background-image: url(/static/gym.jpeg);">
+    <h1 class="text-center mb-4" style="color: aliceblue;">FInancial Report</h1>
+       
+        <div class="form-floating mb-3">
+            <p class="text-center">
+                <a href="/monthreport"><button type="submit" class="btn1 btn-dark">Monthly Report</button></a> 
+            </p>
+            </div>  
+        <div class="form-floating mb-3">
+                <p class="text-center">
+                    <a href="/monthreport"><button type="submit" class="btn1 btn-dark">Six Month Report</button></a> 
+                </p>
+                </div>  
+        <div class="form-floating mb-3">
+                    <p class="text-center">
+                        <a href="/monthreport"><button type="submit" class="btn1 btn-dark">Annual Report</button></a> 
+                    </p>
+                    </div>         
+</body>
+{% endblock %}
