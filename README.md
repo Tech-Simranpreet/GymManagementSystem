@@ -31,6 +31,22 @@ https://gym-management-system-ayaq.onrender.com
 - **Database**: MySQL
 - **Deployment**: Render
 
+## Demo Credentials
+
+Use the following sample membership IDs to test different roles in the system:
+
+- **Admin Account**
+  - Membership ID: `18`
+  - Access: Full admin privileges to manage users, sessions, and feedback.
+
+- **Trainer Accounts**
+  - Membership IDs: `1` to `10`
+  - Access: Trainer-specific dashboard and functionalities.
+
+- **Member Account**
+  - Membership ID: `11` to `16`
+  - Access: Can log in as a member, book workout sessions, and view the member dashboard.
+
 
 
 
