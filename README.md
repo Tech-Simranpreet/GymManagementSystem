@@ -7,7 +7,7 @@ This README highlights the part of the project I contributed to.
 # Live Demo
 https://gym-management-system-ayaq.onrender.com
 
-## Features
+# Features
 
 - **User Registration & Authentication:** Secure account creation and login functionality.
 - **Workout Session Booking:** Users can browse and book available workout sessions.
@@ -17,13 +17,13 @@ https://gym-management-system-ayaq.onrender.com
 - **Session Management:** Admin capabilities to add, update, or delete workout sessions.
 - **Data Validation & Security:** Ensures data accuracy and protects user information.
 
-## My Contribution
+# My Contribution
 
 - Developed and integrated the workout session booking feature, including the backend logic and frontend UI.
 - Worked on ensuring proper validation and user-friendly error handling.
 - Assisted in creating responsive layouts using Bootstrap to enhance user experience.
 
-## Technologies Used
+# Technologies Used
 
 - **Frontend**: HTML5, CSS3, Bootstrap 5, JavaScript
 - **Backend**: Python (Flask)
@@ -31,7 +31,7 @@ https://gym-management-system-ayaq.onrender.com
 - **Database**: MySQL
 - **Deployment**: Render
 
-## Demo Credentials
+# Demo Credentials
 
 Use the following sample membership IDs to test different roles in the system:
 
