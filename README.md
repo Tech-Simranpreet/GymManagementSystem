@@ -1,11 +1,11 @@
 # 🏋️ Gym Management System
-A full-stack Gym Management System developed as part of a group project using **Flask**, **MySQL**,**HTML/CSS**,**Bootstrap** and **Jinja2**. This Gym Management System is a web application designed to facilitate seamless management of gym activities. It allows users to register, book workout sessions, submit feedback, and view personalized dashboards. The system also provides an admin panel for gym staff to manage users, sessions, and feedback.
+A full-stack Gym Management System developed as part of a group project using **Flask**, **MySQL**, **HTML/CSS**, **Bootstrap** and **Jinja2**. This Gym Management System is a web application designed to facilitate seamless management of gym activities. It allows users to register, book workout sessions, submit feedback, and view personalized dashboards. The system also provides an admin panel for gym staff to manage users, sessions, and feedback.
 
 This README highlights the part of the project I contributed to.
 
 
 # Live Demo
-[LiveProjectLink] https://gym-management-system-ayaq.onrender.com
+https://gym-management-system-ayaq.onrender.com
 
 ## Features
 
