@@ -5,7 +5,7 @@ This README highlights the part of the project I contributed to.
 
 
 # Live Demo
-['https://spreet.pythonanywhere.com/']
+https://spreet.pythonanywhere.com/
 
 # Features
 
